@@ -21,18 +21,10 @@ def detect_faces(path):
     for face in faces:
         anger += likelihood_name[face.anger_likelihood]
         joy += likelihood_name[face.joy_likelihood]
-    return [anger, joy]
-    '''print('anger: {}'.format(likelihood_name[face.anger_likelihood]))
-        print('joy: {}'.format(likelihood_name[face.joy_likelihood]))
-        print('surprise: {}'.format(likelihood_name[face.surprise_likelihood]))
-
-        vertices = (['({},{})'.format(vertex.x, vertex.y)
-                    for vertex in face.bounding_poly.vertices])
-
-        print('face bounds: {}'.format(','.join(vertices)))'''
 
     if response.error.message:
         raise Exception(
             '{}\nFor more info on error messages, check: '
             'https://cloud.google.com/apis/design/errors'.format(
                 response.error.message))
+    return [anger, joy]
